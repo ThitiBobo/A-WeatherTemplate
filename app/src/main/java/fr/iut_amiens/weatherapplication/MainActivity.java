@@ -2,10 +2,11 @@ package fr.iut_amiens.weatherapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import fr.iut_amiens.weatherapplication.openweathermap.WeatherManager;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     private WeatherManager weatherManager;
 

@@ -27,6 +27,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // Joda Time
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     compile 'joda-time:joda-time:2.9.9'
 
     // gson
