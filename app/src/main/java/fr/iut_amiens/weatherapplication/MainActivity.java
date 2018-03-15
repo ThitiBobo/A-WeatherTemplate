@@ -1,6 +1,5 @@
 package fr.iut_amiens.weatherapplication;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -17,10 +16,18 @@ public class MainActivity extends AppCompatActivity {
 
         weatherManager = new WeatherManager();
 
-        // Récupération des prévisions par nom de la ville :
-        // ForecastResponse forecast = weatherManager.findForecastByCityName("Amiens");
+        // Récupération de la météo actuelle :
 
-        // Récupération des prévision par localistion :
+        // WeatherResponse weather = weatherManager.findWeatherByCityName("Amiens");
+        // WeatherResponse weather = weatherManager.findWeatherByGeographicCoordinates(49.8942, 2.2957);
+
+        // documentation : https://openweathermap.org/current
+
+        // Récupération des prévisions par nom de la ville :
+
+        // ForecastResponse forecast = weatherManager.findForecastByCityName("Amiens");
         // ForecastResponse forecast = weatherManager.findForecastByGeographicCoordinates(49.8942, 2.2957);
+
+        // documentation : https://openweathermap.org/forecast5
     }
 }
