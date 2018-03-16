@@ -1,11 +1,15 @@
 package fr.iut_amiens.weatherapplication;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.app.AppCompatActivity;
 
 import fr.iut_amiens.weatherapplication.openweathermap.WeatherManager;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView mRecyclerView;
 
     private WeatherManager weatherManager;
 
@@ -13,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        configureRecyclerView();
 
         weatherManager = new WeatherManager();
 
@@ -29,5 +35,13 @@ public class MainActivity extends AppCompatActivity {
         // ForecastResponse forecast = weatherManager.findForecastByGeographicCoordinates(49.8942, 2.2957);
 
         // documentation : https://openweathermap.org/forecast5
+    }
+
+    public void configureRecyclerView(){
+        mRecyclerView = (RecyclerView)findViewById(R.id.activity_main_recyclerview);
+
+        //mRecyclerView.setLayoutManager(new GridLayoutManager(this,2)); très rigolo ^^ <3
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new WeatherAdapter(this,getLayoutInflater()));
     }
 }
