@@ -10,6 +10,8 @@ import fr.iut_amiens.weatherapplication.openweathermap.WeatherManager;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private WeatherTask mWeatherTask;
+    //DAO ?
 
     private WeatherManager weatherManager;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         configureRecyclerView();
+
 
         weatherManager = new WeatherManager();
 
