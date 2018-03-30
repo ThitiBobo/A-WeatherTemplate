@@ -472,16 +472,16 @@ public class WeatherResponse {
          * Rain volume for the last 3 hours
          */
         @SerializedName("3h")
-        private int threeHours;
+        private double threeHours;
 
         public Rain() {
         }
 
-        public int getThreeHours() {
+        public double getThreeHours() {
             return threeHours;
         }
 
-        public void setThreeHours(int threeHours) {
+        public void setThreeHours(double threeHours) {
             this.threeHours = threeHours;
         }
 

@@ -13,17 +13,18 @@ public class MainActivity extends AppCompatActivity {
     private WeatherTask mWeatherTask;
     //DAO ?
 
-    private WeatherManager weatherManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         configureRecyclerView();
+        mWeatherTask = new WeatherTask((WeatherAdapter) mRecyclerView.getAdapter());
+
+        mWeatherTask.execute();
 
 
-        weatherManager = new WeatherManager();
+
 
         // Récupération de la météo actuelle :
 

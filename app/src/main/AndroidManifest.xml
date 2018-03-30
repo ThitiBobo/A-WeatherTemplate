@@ -20,6 +20,11 @@
         </activity>
         <activity android:name=".InfoWeatherActivity">
         </activity>
+        <activity
+            android:name=".openweathermap.Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
