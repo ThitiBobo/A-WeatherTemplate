@@ -42,6 +42,8 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(WeatherResponse weather){
+        TextView tt = (TextView)itemView.findViewById(R.id.item_temp_temp);
+        tt.setText(String.valueOf(weather.getMain().getTemp()));
         //mTextTown.setText(weather.getName());
         //mTextHumidity.setText(String.valueOf(weather.getMain().getTemp()));
     }
