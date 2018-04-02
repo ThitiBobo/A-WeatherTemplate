@@ -28,7 +28,11 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
     private ImageView mButtunClear;
 
 
-    public WeatherViewHolder(Context context,View itemView) {
+    public ImageView getImageWeather() {
+        return mImageWeather;
+    }
+
+    public WeatherViewHolder(Context context, View itemView) {
         super(itemView);
         mContext = context;
 
@@ -93,5 +97,7 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
             mImageWeather.setImageResource(R.drawable.ic_wi_cloudy);
             mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherCloudy));
         }
+
+
     }
 }

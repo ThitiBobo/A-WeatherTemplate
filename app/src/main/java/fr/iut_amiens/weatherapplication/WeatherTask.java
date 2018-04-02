@@ -37,6 +37,9 @@ public class WeatherTask extends AsyncTask {
             weather = mWeatherManager.findWeatherByCityName("Riga");
             this.publishProgress(weather);
 
+            weather = mWeatherManager.findWeatherByCityName("Marseille");
+            this.publishProgress(weather);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
