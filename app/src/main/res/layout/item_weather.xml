@@ -1,145 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_weather_cardview"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/colorPrimaryDark"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="@android:color/holo_blue_light"
     app:cardCornerRadius="2dp"
     app:cardElevation="2dp">
 
-
     <RelativeLayout
-        android:id="@+id/item_weather_layout_body"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/item_weather_image_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            tools:src="" />
-
-        <TextView
-            android:id="@+id/item_weather_text_town"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="10dp"
-            android:fontFamily="sans-serif"
-            android:textColor="#333"
-            android:textSize="20sp"
-            android:text="ville"/>
-
-        <RelativeLayout
-            android:id="@+id/item_weather_layout_weather"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_below="@id/item_weather_text_town">
-
-            <ImageView
-                android:id="@+id/item_weather_icon_weather"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"/>
-
-            <TextView
-                android:id="@+id/item_weather_text_weather"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:textAlignment="center"
-                android:text="weather"/>
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_toRightOf="@id/item_weather_layout_weather"
-            android:layout_below="@id/item_weather_text_town"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="coucou"/>
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#333"
-                android:text="last update: "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#333"
-                android:text="12/01/2018 10:00 PM"/>
-
-        </LinearLayout>
-
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_sun"
+            android:tint="@color/colorText"/>
     </RelativeLayout>
 
 

@@ -22,16 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         configureRecyclerView();
+        configureFloatingActionButton();
         mWeatherTask = new WeatherTask((WeatherAdapter) mRecyclerView.getAdapter());
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         mWeatherTask.execute();
 
@@ -59,5 +51,16 @@ public class MainActivity extends AppCompatActivity {
         //mRecyclerView.setLayoutManager(new GridLayoutManager(this,2)); très rigolo ^^ <3
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(new WeatherAdapter(this,getLayoutInflater()));
+    }
+
+    public void configureFloatingActionButton(){
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 }
