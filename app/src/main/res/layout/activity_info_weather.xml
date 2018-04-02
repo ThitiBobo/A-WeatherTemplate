@@ -7,4 +7,11 @@
     android:layout_height="match_parent"
     tools:context="fr.iut_amiens.weatherapplication.InfoWeatherActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Forecast_RecyclerView"
+        android:layout_width="383dp"
+        android:layout_height="565dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="0dp" />
 </android.support.constraint.ConstraintLayout>
