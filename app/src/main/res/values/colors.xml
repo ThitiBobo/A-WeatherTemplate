@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorText">#FFFFFF</color>
+    
+    <color name="colorWeatherClear">#ecd801</color>
+    <color name="colorWeatherCloud">#01cdec</color>
+    <color name="colorWeatherCloudy">#002087</color>
+    <color name="colorWeatherSnow">#e401ec</color>
+    <color name="colorWeatherStorm">#020b45</color>
 </resources>
