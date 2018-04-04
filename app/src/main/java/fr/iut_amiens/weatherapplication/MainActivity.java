@@ -27,22 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         mWeatherTask.execute();
 
-
-
-
-        // Récupération de la météo actuelle :
-
-        // WeatherResponse weather = weatherManager.findWeatherByCityName("Amiens");
-        // WeatherResponse weather = weatherManager.findWeatherByGeographicCoordinates(49.8942, 2.2957);
-
-        // documentation : https://openweathermap.org/current
-
-        // Récupération des prévisions par nom de la ville :
-
-        // ForecastResponse forecast = weatherManager.findForecastByCityName("Amiens");
-        // ForecastResponse forecast = weatherManager.findForecastByGeographicCoordinates(49.8942, 2.2957);
-
-        // documentation : https://openweathermap.org/forecast5
     }
 
     public void configureRecyclerView(){
