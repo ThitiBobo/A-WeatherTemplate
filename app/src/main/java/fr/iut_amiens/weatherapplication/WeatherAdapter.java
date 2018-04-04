@@ -19,9 +19,13 @@ import fr.iut_amiens.weatherapplication.openweathermap.WeatherResponse;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
 
-    public Context mContext;
-    public LayoutInflater mLayoutInflater;
-    public List<WeatherResponse> mWeatherResponses;
+    private Context mContext;
+    private LayoutInflater mLayoutInflater;
+    private List<WeatherResponse> mWeatherResponses;
+
+    public List<WeatherResponse> getWeatherResponses() {
+        return new ArrayList<WeatherResponse>(mWeatherResponses);
+    }
 
     public WeatherAdapter(Context context, LayoutInflater layoutInflater) {
         mContext = context;
@@ -63,5 +67,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
         mWeatherResponses.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, mWeatherResponses.size());
+    }
+
+    public void clearWeatherReponses(){
+        mWeatherResponses.clear();
     }
 }

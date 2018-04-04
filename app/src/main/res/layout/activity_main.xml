@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.iut_amiens.weatherapplication.Main2Activity">
+    tools:context="fr.iut_amiens.weatherapplication.MainActivity">
 
-    <include layout="@layout/content_main"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Importation de notre Toolbar -->
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <include layout="@layout/content_main"/>
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -14,8 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add"
+        app:srcCompat="@drawable/ic_add"
         android:tint="@color/colorPrimaryDark"/>
+
+
+
 
 
 </android.support.design.widget.CoordinatorLayout>
