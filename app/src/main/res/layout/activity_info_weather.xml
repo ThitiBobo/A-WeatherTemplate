@@ -83,6 +83,7 @@
         android:id="@+id/Forecast_RecyclerView"
         android:layout_width="384dp"
         android:layout_height="173dp"
+        android:scrollbars="horizontal"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="395dp" />
