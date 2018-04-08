@@ -1,10 +1,16 @@
 package fr.iut_amiens.weatherapplication;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AlertDialogLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 
 import java.util.List;
 
@@ -23,6 +30,7 @@ import fr.iut_amiens.weatherapplication.openweathermap.WeatherResponse;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+
     //DAO ?
 
     @Override
@@ -96,8 +104,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertDialog dialog = (AlertDialog) dialogInterface;
-                EditText dialogAddText = dialog.findViewById(R.id.dialog_add_editext_town);
-                findWeatherByCityName(dialogAddText.getText().toString());
+                Switch coord = dialog.findViewById(R.id.dialog_add_switch_coord);
+                if (coord.isChecked()){
+                    return;
+                }else{
+                    EditText dialogAddText = dialog.findViewById(R.id.dialog_add_editext_town);
+                    findWeatherByCityName(dialogAddText.getText().toString());
+                }
+
             }
         });
 
@@ -112,19 +126,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void reload(){
-        Log.v("","cc");
+
         WeatherAdapter adapter = (WeatherAdapter)mRecyclerView.getAdapter();
         List<WeatherResponse> copy = adapter.getWeatherResponses();
         adapter.clearWeatherReponses();
-        //copy.forEach((e)->mWeatherTask.findWeatherByCityName(e.getName());
-        /*for(WeatherResponse e:copy){
-            mWeatherTask.findWeatherByCityName(e.getName());
-        }*/
+        for(WeatherResponse e:copy){
+            findWeatherByCityName(e.getName());
+        }
     }
 
     private void findWeatherByCityName(String txt){
         WeatherTask task = new WeatherTask(this,(WeatherAdapter) mRecyclerView.getAdapter());
         task.findWeatherByCityName(txt);
         task.execute();
+    }
+
+    private void findWeatherByCoords(){
+        //je sais plus -_-
     }
 }

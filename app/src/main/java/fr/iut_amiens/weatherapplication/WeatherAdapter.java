@@ -57,7 +57,6 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherViewHolder> {
     }
 
     public void add (WeatherResponse weatherResponse){
-        Log.v("dd",weatherResponse.toString());
         mWeatherResponses.add(weatherResponse);
         notifyDataSetChanged();
 
