@@ -23,7 +23,6 @@ import fr.iut_amiens.weatherapplication.openweathermap.WeatherResponse;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
-    private WeatherTask mWeatherTask;
     //DAO ?
 
     @Override
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         configureRecyclerView();
         configureFloatingActionButton();
         configureToolbar();
-        mWeatherTask = new WeatherTask((WeatherAdapter) mRecyclerView.getAdapter());
     }
 
     @Override
@@ -90,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void add(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Créer un nouveau fichier");
-        builder.setMessage("Saisir l nom du fichier");
+        builder.setTitle("METEO");
+        builder.setMessage("Entrez le nom de la ville");
         builder.setView(getLayoutInflater().inflate(R.layout.dialog_add,null));
 
         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
@@ -99,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertDialog dialog = (AlertDialog) dialogInterface;
                 EditText dialogAddText = dialog.findViewById(R.id.dialog_add_editext_town);
-                mWeatherTask.findWeatherByCityName(dialogAddText.getText().toString());
+                findWeatherByCityName(dialogAddText.getText().toString());
             }
         });
 
@@ -122,5 +120,11 @@ public class MainActivity extends AppCompatActivity {
         /*for(WeatherResponse e:copy){
             mWeatherTask.findWeatherByCityName(e.getName());
         }*/
+    }
+
+    private void findWeatherByCityName(String txt){
+        WeatherTask task = new WeatherTask(this,(WeatherAdapter) mRecyclerView.getAdapter());
+        task.findWeatherByCityName(txt);
+        task.execute();
     }
 }

@@ -1,9 +1,11 @@
 package fr.iut_amiens.weatherapplication;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Adapter;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -18,77 +20,75 @@ import fr.iut_amiens.weatherapplication.openweathermap.WeatherResponse;
 
 public class WeatherTask extends AsyncTask {
 
+    private Context mContext;
     private WeatherManager mWeatherManager;
     private WeatherAdapter mWeatherAdapter;
 
-    private List<String> mCityNames;
+    private String mCityNames;
 
-    private List<Double> mLatitudes;
-    private List<Double> mLongitudes;
+    private double mLatitudes;
+    private double mLongitudes;
 
-    public WeatherTask(WeatherAdapter weatherAdapter) {
+    private static final String mMsgError = new StringBuilder()
+            .append("Erreur lors de la réception des informations.")
+            .append("\n")
+            .append("GODZILLA a surement due manger la VILLE")
+            .toString();
+
+    private static final String mMsgErrorUnknow = "bah !!";
+
+    public WeatherTask(Context context, WeatherAdapter weatherAdapter) {
+        mContext = context;
         mWeatherAdapter = weatherAdapter;
         mWeatherManager = new WeatherManager();
 
-        mCityNames = new ArrayList<String>();
-        mLongitudes = new ArrayList<Double>();
-        mLatitudes = new ArrayList<Double>();
+        mCityNames = "";
+        mLongitudes = 0;
+        mLatitudes = 0;
     }
 
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        while (true) {
-
-            while (!mCityNames.isEmpty()) {
-                try {
-                    WeatherResponse weather = mWeatherManager.findWeatherByCityName(
-                            mCityNames.get(0));
-                    this.publishProgress(weather);
-                    mCityNames.remove(0);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (mCityNames != ""){
+            try {
+                WeatherResponse weather = mWeatherManager.findWeatherByCityName(
+                        mCityNames);
+                this.publishProgress(weather);
+            } catch (IOException e) {
+                this.publishProgress(e);
             }
-            while ((!mLatitudes.isEmpty()) || (!mLongitudes.isEmpty())) {
-
-                try {
-                    WeatherResponse weather = mWeatherManager.findWeatherByGeographicCoordinates(
-                            mLatitudes.get(0),
-                            mLongitudes.get(0));
-
-                    this.publishProgress(weather);
-                    mLongitudes.remove(0);
-                    mLongitudes.remove(0);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        }else{
+            try {
+                WeatherResponse weather = mWeatherManager.findWeatherByGeographicCoordinates(
+                        mLatitudes,
+                        mLongitudes);
+                this.publishProgress(weather);
+            } catch (IOException e) {
+                this.publishProgress(e);
             }
         }
+        return true;
     }
 
     @Override
     protected void onProgressUpdate(Object[] values) {
-        mWeatherAdapter.add((WeatherResponse)values[0]);
+        if (values[0] instanceof WeatherResponse)
+            mWeatherAdapter.add((WeatherResponse)values[0]);
+        else if (values[0] instanceof IOException)
+            Toast.makeText(mContext, mMsgError, Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(mContext, mMsgErrorUnknow, Toast.LENGTH_LONG).show();
     }
 
     public void findWeatherByCityName(String cityName) throws IllegalStateException{
-        checkAsyncTask();
-        mCityNames.add(cityName);
+        mCityNames = cityName;
     }
 
     public void findWeatherByGeographicCoordinates(double latitude, double longitude) throws IllegalStateException{
-        checkAsyncTask();
-        mLatitudes.add(latitude);
-        mLongitudes.add(longitude);
+        mLatitudes = latitude;
+        mLongitudes= longitude;
 
-    }
-
-    private void checkAsyncTask() throws IllegalStateException{
-        if (this.getStatus() == Status.FINISHED)
-            throw new IllegalStateException();
-        if (this.getStatus() == Status.PENDING)
-            this.execute();
     }
 
 }
