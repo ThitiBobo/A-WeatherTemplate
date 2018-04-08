@@ -6,8 +6,9 @@
     <color name="colorText">#FFFFFF</color>
     
     <color name="colorWeatherClear">#ecd801</color>
-    <color name="colorWeatherCloud">#01cdec</color>
-    <color name="colorWeatherCloudy">#002087</color>
-    <color name="colorWeatherSnow">#e401ec</color>
-    <color name="colorWeatherStorm">#020b45</color>
+    <color name="colorWeatherCloud">#aaaaaa</color>
+    <color name="colorWeatherCloudy">#a6bbc7</color>
+    <color name="colorWeatherRain">#0097A7</color>
+    <color name="colorWeatherSnow">#c8e1f0</color>
+    <color name="colorWeatherStorm">#62616a</color>
 </resources>
