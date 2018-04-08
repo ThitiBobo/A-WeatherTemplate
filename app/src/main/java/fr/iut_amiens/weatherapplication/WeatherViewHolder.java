@@ -79,7 +79,7 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
 
         } else if (id >= 300 && id < 600) {
             mImageWeather.setImageResource(R.drawable.ic_wi_rain);
-            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherSnow));
+            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherRain));
         } else if (id >= 600 && id < 700) {
             mImageWeather.setImageResource(R.drawable.ic_wi_snow);
             mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherSnow));
@@ -91,13 +91,13 @@ public class WeatherViewHolder extends RecyclerView.ViewHolder {
             mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherClear));
         } else if (id == 801) {
             mImageWeather.setImageResource(R.drawable.ic_wi_day_cloudy);
-            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherClear));
+            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherCloudy));
         } else if (id == 802) {
             mImageWeather.setImageResource(R.drawable.ic_wi_cloud);
             mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherCloud));
         } else if (id == 803 || id == 804){
             mImageWeather.setImageResource(R.drawable.ic_wi_cloudy);
-            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherCloudy));
+            mCardView.setCardBackgroundColor(ContextCompat.getColor(mContext,R.color.colorWeatherCloud));
         }
 
 
